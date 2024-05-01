@@ -17,7 +17,7 @@ class User(AbstractUser):
     email = EmailField(_("email address"), unique=True)
     username = None
     mobile_number:str = CharField(max_length=255, blank=True)
-    is_active = BooleanField(default=True)
+    is_active:bool = BooleanField(default=True)
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
