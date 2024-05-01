@@ -1,4 +1,4 @@
-#!/home/usama/Documents/aeroglobe/event_management/env/bin/python3.10
+#!/home/usama/Documents/aeroglobe/django-event-management/env/bin/python3.10
 
 # http://www.python.org/doc/2.4.4/lib/module-itertools.html
 import itertools

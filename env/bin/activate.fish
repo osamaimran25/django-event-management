@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/usama/Documents/aeroglobe/event_management/env"
+set -gx VIRTUAL_ENV "/home/usama/Documents/aeroglobe/django-event-management/env"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

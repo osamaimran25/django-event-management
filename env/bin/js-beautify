@@ -1,4 +1,4 @@
-#!/home/usama/Documents/aeroglobe/event_management/env/bin/python3.10
+#!/home/usama/Documents/aeroglobe/django-event-management/env/bin/python3.10
 # -*- coding: utf-8 -*-
 import re
 import sys
