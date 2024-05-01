@@ -45,7 +45,9 @@ nosetests.xml
 coverage.xml
 *.cover
 .hypothesis/
-
+env/
+/env
+/env/
 # Translations
 *.mo
 *.pot
