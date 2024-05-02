@@ -1,11 +1,16 @@
+from typing import Any
+
 from django.http import Http404
 from rest_framework import status
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework import generics
+
 from events.models import Event
+from events.pagination import EventPagination
 from .permissions import IsOwnerOrReadOnly
-from .serializers import EventSerializer
+from .serializers import EventSerializer, EventAttendeeSerializer
 
 
 class EventManagement(APIView):
@@ -43,3 +48,10 @@ class EventManagement(APIView):
         event = self.get_object(pk)
         event.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+class EventList(generics.ListAPIView):
+    permission_classes: Any = (AllowAny,)
+    queryset: Any = Event.objects.all()
+    serializer_class: Any = EventAttendeeSerializer
+    pagination_class: Any = EventPagination
