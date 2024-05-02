@@ -2,7 +2,7 @@ from django.urls import path
 from django.conf import settings
 
 from event_management.users.api.views import UserSignup, UserLogin
-from event_management.events.api.views import EventManagement, EventList
+from event_management.events.api.views import EventManagement, EventList, AttendEvent
 
 
 
@@ -13,5 +13,6 @@ urlpatterns = [
     path('event/', EventManagement.as_view(), name='create-event'),
     path('event/<int:pk>/', EventManagement.as_view(), name='event-management'),
     path('events/', EventList.as_view(), name='list-event-management'),
+    path('attend/<int:event_id>/', AttendEvent.as_view(), name='attend-event'),
 
 ]

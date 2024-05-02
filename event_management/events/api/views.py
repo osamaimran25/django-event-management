@@ -55,3 +55,23 @@ class EventList(generics.ListAPIView):
     queryset: Any = Event.objects.all()
     serializer_class: Any = EventAttendeeSerializer
     pagination_class: Any = EventPagination
+
+
+class AttendEvent(APIView):
+    permission_classes = (IsAuthenticated, )
+
+    def get_event(self, event_id: int) -> Event:
+        try:
+            return Event.objects.get(id=event_id)
+        except Event.DoesNotExist:
+            raise Http404
+
+    def post(self, request, event_id: int) -> Response:
+        event = self.get_event(event_id)
+        if event.attendees.filter(id=request.user.id).exists():
+            return Response({"message": "You are already attending this event."}, status=status.HTTP_400_BAD_REQUEST)
+        elif request.user == event.owner:
+            return Response({"message": "Owner can not be attendee."}, status=status.HTTP_400_BAD_REQUEST)
+        else:
+            event.attendees.add(request.user)
+            return Response({"message": "You have successfully attended the event."}, status=status.HTTP_201_CREATED)
