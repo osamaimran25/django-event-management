@@ -1,54 +1,94 @@
-# event management
+```markdown
+# Event Management
 
-Behold My Awesome Project!
+Welcome to the Event Management project!
+
+## Setup
+
+First, create a virtual environment:
+
+```bash
+virtualenv env
+```
+
+Activate the virtual environment:
+
+```bash
+source env/bin/activate
+```
+
+Install all dependencies:
+
+```bash
+pip install -r requirements/local.txt
+```
+
+Alternatively, you can run the project with Docker.
+
+### Docker Setup
+
+To build the Docker image locally:
+
+```bash
+docker-compose -f local.yml build
+```
+
+To run the Docker container in detached mode:
+
+```bash
+docker-compose -f local.yml up -d
+```
+
+## About
+
+This project is built with the help of Cookiecutter Django, making development faster and easier. 
 
 [![Built with Cookiecutter Django](https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg?logo=cookiecutter)](https://github.com/cookiecutter/cookiecutter-django/)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
-
-License: MIT
-
-## Settings
-
-Moved to [settings](http://cookiecutter-django.readthedocs.io/en/latest/settings.html).
 
 ## Basic Commands
 
 ### Setting Up Your Users
 
-- To create a **normal user account**, just go to Sign Up and fill out the form. Once you submit it, you'll see a "Verify Your E-mail Address" page. Go to your console to see a simulated email verification message. Copy the link into your browser. Now the user's email should be verified and ready to go.
+- To create a **normal user account**, simply sign up and verify your email address.
+- To create a **superuser account**, use:
 
-- To create a **superuser account**, use this command:
+```bash
+python manage.py createsuperuser
+```
 
-      $ python manage.py createsuperuser
+### Testing
 
-For convenience, you can keep your normal user logged in on Chrome and your superuser logged in on Firefox (or similar), so that you can see how the site behaves for both kinds of users.
+Run type checks with mypy:
 
-### Type checks
+```bash
+mypy event_management
+```
 
-Running type checks with mypy:
+Run tests and check coverage:
 
-    $ mypy event_management
+```bash
+coverage run -m pytest
+coverage html
+open htmlcov/index.html
+```
 
-### Test coverage
+Run tests with pytest:
 
-To run the tests, check your test coverage, and generate an HTML coverage report:
+```bash
+pytest
+```
 
-    $ coverage run -m pytest
-    $ coverage html
-    $ open htmlcov/index.html
+### Live Reloading and Sass CSS Compilation
 
-#### Running tests with pytest
-
-    $ pytest
-
-### Live reloading and Sass CSS compilation
-
-Moved to [Live reloading and SASS compilation](https://cookiecutter-django.readthedocs.io/en/latest/developing-locally.html#sass-compilation-live-reloading).
+Details available [here](https://cookiecutter-django.readthedocs.io/en/latest/developing-locally.html#sass-compilation-live-reloading).
 
 ## Deployment
 
-The following details how to deploy this application.
+For deployment, refer to the [cookiecutter-django Docker documentation](http://cookiecutter-django.readthedocs.io/en/latest/deployment-with-docker.html).
 
-### Docker
+## License
 
-See detailed [cookiecutter-django Docker documentation](http://cookiecutter-django.readthedocs.io/en/latest/deployment-with-docker.html).
+This project is licensed under the MIT License.
+```
+I reformatted the README, organizing the content into sections for clarity and added markdown code blocks for commands and code snippets. Let me know if you need further adjustments!
