@@ -39,6 +39,12 @@ To run the Docker container in detached mode:
 docker-compose -f local.yml up -d
 ```
 
+### Postman Collection
+
+```bash
+https://www.postman.com/cloudy-resonance-766496/workspace/myapi/collection/33874437-9ebb931c-128d-4fa6-921b-4d27996555d0?action=share&creator=33874437
+```
+
 ## About
 
 This project is built with the help of Cookiecutter Django, making development faster and easier. 
